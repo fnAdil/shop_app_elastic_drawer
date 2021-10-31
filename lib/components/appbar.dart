@@ -2,24 +2,31 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key? key, required this.func}) : super(key: key);
+  const CustomAppBar({Key? key, required this.func, required this.iconRight})
+      : super(key: key);
   final void Function() func;
+  final Icon iconRight;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: func,
-        ),
-        IconButton(
-            icon: const Icon(Icons.shopping_bag_outlined),
-            onPressed: () {
-              print("shop");
-            }),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            onPressed: func,
+          ),
+          IconButton(
+              icon: iconRight,
+              onPressed: () {
+                print("shop");
+              }),
+        ],
+      ),
     );
   }
 }

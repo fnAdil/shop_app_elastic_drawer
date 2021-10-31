@@ -8,20 +8,43 @@ class DetailPage extends StatelessWidget {
   }) : super(
           key: key,
         );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // ignore: prefer_const_constructors
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 60, horizontal: 30),
+        padding: const EdgeInsets.only(
+          top: 60,
+        ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            CustomAppBar(
-              func: () {
-                Navigator.pop(context);
-              },
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: CustomAppBar(
+                func: () {
+                  Navigator.pop(context);
+                },
+                iconRight: const Icon(Icons.shopping_bag_outlined),
+              ),
             ),
+            Expanded(
+              flex: 11,
+              child: Container(
+                color: Colors.teal,
+                child: Image.asset("assets/images/d.png"),
+              ),
+            ),
+            Expanded(
+              flex: 12,
+              child: Container(
+                  decoration: const BoxDecoration(
+                color: Colors.white70,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40)),
+              )),
+            )
           ],
         ),
         color: Colors.teal,

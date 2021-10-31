@@ -13,23 +13,25 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: size.height * 0.8,
+    return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          SizedBox(
-            height: size.height * 0.55,
+          Expanded(
+            flex: 11,
             child: Image.asset("assets/images/d.png"),
           ),
-          InfoCard(
-            size: size,
-            func: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => DetailPage()),
-              );
-            },
+          Expanded(
+            flex: 3,
+            child: InfoCard(
+              size: size,
+              func: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const DetailPage()),
+                );
+              },
+            ),
           )
         ],
       ),

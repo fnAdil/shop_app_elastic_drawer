@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app_elastic_drawer/components/appbar.dart';
-import 'package:shop_app_elastic_drawer/components/info_card.dart';
 
 import '../components/body.dart';
 
@@ -15,8 +14,8 @@ class Home extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 30),
-        color: Colors.black38,
+        padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 10),
+        color: Colors.teal,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -24,6 +23,7 @@ class Home extends StatelessWidget {
               func: () {
                 print("back");
               },
+              iconRight: const Icon(Icons.favorite_outline),
             ),
             Body(
               size: size,

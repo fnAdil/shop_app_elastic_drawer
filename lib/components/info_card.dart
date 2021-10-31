@@ -16,45 +16,51 @@ class InfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: func,
-      child: SizedBox(
-        height: size.height * 0.18,
-        child: Container(
-          decoration: BoxDecoration(
-              color: Colors.black45, borderRadius: BorderRadius.circular(20)),
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Image.asset("assets/images/d.png"),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  const Text(
-                    "Casual Sweater",
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  ),
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white70, borderRadius: BorderRadius.circular(20)),
+        padding: const EdgeInsets.symmetric(
+          vertical: 15,
+          horizontal: 20,
+        ),
+        child: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.teal[200],
+                  borderRadius: BorderRadius.circular(20)),
+              padding: const EdgeInsets.all(16.0),
+              child: Image.asset("assets/images/d.png"),
+            ),
+            // ignore: prefer_const_constructors
+            SizedBox(
+              width: 30,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                const Text(
+                  "Casual Sweater",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ),
+                // ignore: prefer_const_constructors
+                Text(
+                  "Outlook",
                   // ignore: prefer_const_constructors
-                  Text(
-                    "Outlook",
-                    // ignore: prefer_const_constructors
-                    style: const TextStyle(fontSize: 16, color: Colors.grey),
-                  ),
-                  const Text(
-                    "\$99",
-                    style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              )
-            ],
-          ),
+                  style: const TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+                const Text(
+                  "\$99",
+                  style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
