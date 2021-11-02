@@ -14,7 +14,11 @@ class DetailPage extends StatefulWidget {
   State<DetailPage> createState() => _DetailPageState();
 }
 
+List<String> Size1 = ["XS", "S", "M", "L", "XL"];
+
 class _DetailPageState extends State<DetailPage> {
+  late String size1 = "M";
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -88,13 +92,29 @@ class _DetailPageState extends State<DetailPage> {
                       "Choose Size",
                       style: TextStyle(fontSize: 24, color: Colors.black87),
                     ),
-                    ChooseSize(
-                      onSizeSelected: (p0) {
-                        print(p0);
-                      },
-                      selectedSize: "M",
-                      sizes: ["XS", "S", "M", "L", "XL"],
-                      size: size,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: List.generate(
+                        Size1.length,
+                        (index) => GestureDetector(
+                          onTap: () {
+                            size1 = Size1[index];
+                            setState(() {
+                              print(size1);
+                            });
+                          },
+                          child: CircleAvatar(
+                            child: Text(
+                              Size1[index],
+                              style: const TextStyle(color: Colors.black),
+                            ),
+                            minRadius: size.height * 0.034,
+                            backgroundColor: size1 == Size1[index]
+                                ? Colors.teal
+                                : Colors.teal[50],
+                          ),
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -103,47 +123,6 @@ class _DetailPageState extends State<DetailPage> {
           ],
         ),
         color: Colors.teal,
-      ),
-    );
-  }
-}
-
-class ChooseSize extends StatelessWidget {
-  const ChooseSize({
-    Key? key,
-    required this.size,
-    required this.sizes,
-    required this.onSizeSelected,
-    required this.selectedSize,
-  }) : super(key: key);
-
-  final Size size;
-  final List<String> sizes;
-  final String selectedSize;
-  final void Function(String) onSizeSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    String str = selectedSize;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: List.generate(
-        sizes.length,
-        (index) => GestureDetector(
-          onTap: () {
-            str = sizes[index];
-            onSizeSelected(sizes[index]);
-          },
-          child: CircleAvatar(
-            child: Text(
-              sizes[index],
-              style: const TextStyle(color: Colors.black),
-            ),
-            minRadius: size.height * 0.034,
-            backgroundColor:
-                str == sizes[index] ? Colors.teal : Colors.teal[50],
-          ),
-        ),
       ),
     );
   }
