@@ -14,11 +14,11 @@ class DetailPage extends StatefulWidget {
   State<DetailPage> createState() => _DetailPageState();
 }
 
+enum Sizes { XS, S, M, L, XL }
 List<String> Size1 = ["XS", "S", "M", "L", "XL"];
+String size1 = "M";
 
 class _DetailPageState extends State<DetailPage> {
-  late String size1 = "M";
-
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -50,7 +50,7 @@ class _DetailPageState extends State<DetailPage> {
             Expanded(
               flex: 12,
               child: Container(
-                padding: EdgeInsets.only(left: 30, right: 40),
+                padding: EdgeInsets.only(left: 30, right: 40, bottom: 30),
                 width: size.width,
                 decoration: const BoxDecoration(
                   color: Colors.white70,
@@ -115,6 +115,62 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                         ),
                       ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              print("fav");
+                            });
+                          },
+                          child: CircleAvatar(
+                            child: const Icon(
+                              Icons.favorite_outline,
+                              color: Colors.black,
+                            ),
+                            minRadius: size.height * 0.034,
+                            backgroundColor: Colors.white70,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              print("add to cart");
+                            });
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 30),
+                            decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(16)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              // ignore: prefer_const_literals_to_create_immutables
+                              children: [
+                                const Text(
+                                  "Add to Cart",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                CircleAvatar(
+                                  child: const Icon(
+                                    Icons.shopping_bag_outlined,
+                                    color: Colors.white70,
+                                  ),
+                                  minRadius: size.height * 0.025,
+                                  backgroundColor: Colors.white24,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     )
                   ],
                 ),
