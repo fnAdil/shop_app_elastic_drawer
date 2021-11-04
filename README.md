@@ -7,4 +7,5 @@ A new Flutter project.
 This project is a product page and it's detail page of a basic shop app.
 There are some pictures of pages in screenShots folder.
 
+<<<<<<< HEAD
 <img src="ScreenShots/detail_page.jpg" alt="a" width="400"/>
