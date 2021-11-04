@@ -34,8 +34,11 @@ class _DetailPageState extends State<DetailPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: CustomAppBar(
-                func: () {
+                funcLeft: () {
                   Navigator.pop(context);
+                },
+                funcRight: () {
+                  print("shop");
                 },
                 iconRight: const Icon(Icons.shopping_bag_outlined),
               ),
@@ -155,7 +158,7 @@ class _DetailPageState extends State<DetailPage> {
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 20),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 20,
                                 ),
                                 CircleAvatar(

@@ -20,7 +20,10 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CustomAppBar(
-              func: () {
+              funcRight: () {
+                print("fav");
+              },
+              funcLeft: () {
                 print("back");
               },
               iconRight: const Icon(Icons.favorite_outline),
